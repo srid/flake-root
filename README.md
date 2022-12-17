@@ -25,3 +25,7 @@ Now you have access to the program that returns the absolute path to the project
 ## Examples
 
 - https://github.com/Platonic-Systems/mission-control
+
+## Credit
+
+The bash script is originally based on [numtide/treefmt](https://github.com/numtide/treefmt/blob/66959743ba9e955819a16960319a09d152acff9a/module-options.nix#L98-L109).
