@@ -57,6 +57,7 @@ in
             description = lib.mdDoc ''
               flake-root module options
             '';
+            default = {};
           };
         });
   };
