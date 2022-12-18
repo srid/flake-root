@@ -24,7 +24,9 @@ Now you have access to the program that returns the absolute path to the project
 
 ## Examples
 
-- https://github.com/Platonic-Systems/mission-control
+- This module is in turn used by the following `flake-parts` modules:
+  - https://github.com/Platonic-Systems/mission-control
+  - https://github.com/srid/proc-flake
 
 ## Credit
 
