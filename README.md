@@ -20,7 +20,7 @@ A `flake-parts` module for finding your way to the project root directory
     }; 
 ```
 
-Now you have access to the program that returns the absolute path to the project root via `${lib.getExe config.flake-root.package}`.
+Now you have access to the program that returns the absolute path to the project root via `${lib.getExe config.flake-root.package}`. There is also `config.flake-root.devShell` which exposes a `shellHook` providing the `$FLAKE_ROOT` environment variable.
 
 ## Examples
 
