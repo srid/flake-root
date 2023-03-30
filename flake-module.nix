@@ -18,9 +18,23 @@ in
                 description = lib.mdDoc "The name of the unique file that exists only at project root";
                 default = "flake.nix";
               };
-              # Functions
+              devShell = mkOption {
+                type = types.package;
+                readOnly = true;
+                description = lib.mdDoc ''
+                  Devshell providing a shellHook setting $FLAKE_ROOT
+                '';
+                default = pkgs.mkShell {
+                  name = "flake-root-devshell";
+                  shellHook = ''
+                    FLAKE_ROOT="''$(${lib.getExe config.flake-root.package})"
+                    export FLAKE_ROOT
+                  '';
+                };
+              };
               package = mkOption {
                 type = types.package;
+                readOnly = true;
                 description = lib.mdDoc ''
                   The Nix package providing the command to find the project root.
                 '';
@@ -57,7 +71,7 @@ in
             description = lib.mdDoc ''
               flake-root module options
             '';
-            default = {};
+            default = { };
           };
         });
   };
