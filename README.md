@@ -15,9 +15,14 @@ A `flake-parts` module for finding your way to the project root directory
       imports = [
         inputs.flake-root.flakeModule
       ];
-    perSystem = { pkgs, lib, config, ... }: {
-      flake-root.projectRootFile = "flake.nix";  # Not necessary, as flake.nix is the default
-    }; 
+      perSystem = { pkgs, lib, config, ... }: {
+        flake-root.projectRootFile = "flake.nix";  # Not necessary, as flake.nix is the default
+        devShells.default = pkgs.mkShell {
+          inputsFrom = [ config.flake-root.devShell ];  # Provides $FLAKE_ROOT in dev shell
+        };
+      };
+    };
+}
 ```
 
 Now you have access to the program that returns the absolute path to the project root via `${lib.getExe config.flake-root.package}`. There is also `config.flake-root.devShell` which exposes a `shellHook` providing the `$FLAKE_ROOT` environment variable.
