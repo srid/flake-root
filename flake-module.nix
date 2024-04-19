@@ -15,13 +15,13 @@ in
             options = {
               projectRootFile = mkOption {
                 type = types.str;
-                description = lib.mdDoc "The name of the unique file that exists only at project root";
+                description = "The name of the unique file that exists only at project root";
                 default = "flake.nix";
               };
               devShell = mkOption {
                 type = types.package;
                 readOnly = true;
-                description = lib.mdDoc ''
+                description = ''
                   Devshell providing a shellHook setting $FLAKE_ROOT
                 '';
                 default = pkgs.mkShell {
@@ -35,7 +35,7 @@ in
               package = mkOption {
                 type = types.package;
                 readOnly = true;
-                description = lib.mdDoc ''
+                description = ''
                   The Nix package providing the command to find the project root.
                 '';
                 default = pkgs.writeShellApplication {
@@ -68,7 +68,7 @@ in
         {
           options.flake-root = lib.mkOption {
             type = mainSubmodule;
-            description = lib.mdDoc ''
+            description = ''
               flake-root module options
             '';
             default = { };
