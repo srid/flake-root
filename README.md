@@ -2,6 +2,13 @@
 
 A `flake-parts` module for finding your way to the project root directory
 
+## Why?
+
+Because Nix itself doesn't provide it:
+
+- https://github.com/NixOS/nix/issues/8034
+- https://github.com/NixOS/nix/issues/6241
+
 ## Usage
 
 ```nix
